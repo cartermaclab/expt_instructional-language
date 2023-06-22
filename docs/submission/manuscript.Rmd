@@ -1,0 +1,301 @@
+---
+title             : "Autonomy-supportive instructional language does not enhance skill acquisition compared to controlling instructional language"
+shorttitle        : "Instructional language and motor learning"
+
+authornote: |
+  \vspace{-0.5cm}
+  \noindent \textbf{Corresponding author:} \newline
+  Michael J. Carter, Ph.D \newline
+  Department of Kinesiology \newline
+  McMaster University \newline
+  Ivor Wynne Centre Room 203 \newline
+  1280 Main Street West \newline
+  Hamilton, Ontario, Canada \newline
+  L8S 4K1 \newline
+  Email: cartem11@mcmaster.ca; motorlab@mcmaster.ca
+
+abstract: |
+  Instructional language is one of three possible techniques in OPTIMAL theory that can be manipulated to foster an autonomy-supportive practice environment to enhance motor performance and learning. While autonomy-supportive language has been shown to be beneficial in educational psychology, coaching, and health settings, the wording of task instructions has received minimal attention in the motor learning literature to date. Here, we investigated the influence of different instructional language styles on skill acquisition in a pre-registered experiment. Participants (*N* = 156) learned a speed cup stacking task and received instructions throughout practice that used either autonomy-supportive or controlling language. Although the autonomy-supportive instructions resulted in higher perceptions of autonomy, we did not find any group differences for motor performance in acquisition or in a delayed retention test. Perceptions of competence were higher at the end of acquisition following autonomy-supportive instructions, but this effect was transient as it disappeared before the delayed retention test. Interestingly, intrinsic motivation was lower before retention than after acquisition for the participants that received autonomy-supportive instructions. These data are difficult to reconcile with key predictions in OPTIMAL theory regarding a direct and causal influence of motivational factors on performance and learning. However, our equivalence test suggests these effects on skill acquisition may be smaller than what we were powered to detect. Nevertheless, this is consistent with a growing body of evidence highlighting the need for much larger *N* experiments in motor learning research.
+
+keywords          : |
+  Motor learning, Retention, OPTIMAL theory, Pre-registered
+# wordcount         : "XXXX"
+
+bibliography      : ["../references.bib", "../r-references.bib"]
+
+floatsintext      : yes
+figurelist        : no
+tablelist         : no
+footnotelist      : no
+linenumbers       : yes
+mask              : yes
+draft             : no
+
+csl               : "`r system.file('rmd', 'apa7.csl', package = 'papaja')`"
+documentclass     : "apa7"
+classoption       : "man, donotrepeattitle"
+#fontsize          : 11pt
+output            : papaja::apa6_pdf
+
+header-includes   :
+  - \usepackage{setspace}
+ # - \pagewiselinenumbers
+  - \raggedbottom
+  - \usepackage{sectsty}
+  - \sectionfont{\centering\normalfont\normalsize\bfseries}
+  - \subsectionfont{\normalfont\normalsize\bfseries\itshape}
+  - \subsubsectionfont{\normalfont\normalsize\itshape}
+  - \usepackage{censor}
+
+  - \renewcommand\author[1]{}
+  - \renewcommand\affiliation[1]{}
+  - \authorsnames[1, 1, 2, 3, 2, 4, 5, 1]{Laura St. Germain, Brad McKay, Chitrini Tandon, Jeswende Seedu, Lidia Barbera, Chantal Carrillo, Denver M.Y. Brown, Michael J. Carter\vspace{2ex}}
+  - \authorsaffiliations{{Department of Kinesiology, McMaster University}, {School of Interdisciplinary Science, McMaster University}, {Faculty of Health Sciences, McMaster University}, {Department of Psychology, Neuroscience, and Behaviour, McMaster University}, {Department of Psychology, The University of Texas at San Antonio}}
+---
+
+```{r setup, include=FALSE}
+library(papaja)
+library(kableExtra)
+library(tidyverse)
+```
+
+```{r analysis-preferences}
+# Seed for random number generation
+set.seed(42)
+knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
+```
+
+Autonomy support refers to a teaching style or approach that fosters self-determination and intrinsic motivation in learners by providing them with choices, respect, and opportunities to make decisions. In Self-Determination Theory [@deci2012; @ryan2020], autonomy is broadly defined as the sense of ownership and initiative over one’s behaviors. Within the Basic Psychological Needs Theory [@ryan2000; @ryan2017] of Self-Determination Theory, humans have inherent psychological needs for autonomy, competence, and relatedness. When these needs are satisfied, individuals experience a range of positive outcomes such as enhanced performance, increased intrinsic motivation, and are more likely to engage in activities with a greater sense of interest, enjoyment, and well-being. Indeed, autonomy support has been shown to be efficacious in a variety of contexts, including educational psychology [see @reeve2009; @ryan2020 for reviews; and see @su2011 for a meta-analysis], coaching [see @mossman2022 for a meta-analysis], and health [see @okada2021 for a meta-analysis]. During the last decade, motor learning scientists have become increasingly interested in the use of autonomy-supportive practice conditions for skill acquisition [see @sanli2013; @stemarie2020; @wulf2016 for reviews].
+
+The prevailing autonomy-supportive manipulation in the motor learning literature is providing learners with opportunities for choice either before or during practice [for a review see @stemarie2020]. In the OPTIMAL theory of motor learning, @wulf2016 highlighted two ways to support autonomy through choice: *control over practice conditions* (i.e., task-relevant choices) and *incidental choices* (i.e., task-irrelevant choices). The dominant view for nearly 25 years has been that both choice manipulations are effective for skill acquisition [e.g., @carter2014; @carter2017; @chiviacowsky2002; @chiviacowsky2005; @lewthwaite2015; @wulf2014; @wulf2018]; commonly referred to as the self-controlled learning advantage. Recently, however, this so-called self-controlled learning advantage has failed to be replicated in several large *N*---and often pre-registered---experiments [@bacelar2022; @leiker2019; @mckay2020; @mckay2022; @stgermain2022; @stgermain2023; @yantha2022]. A recent meta-analysis found that estimates of the self-controlled learning effect could range from *g* = -0.11 to 0.26 after correcting for publication bias [@mckay2022a]. @mckay2023 re-analyzed this meta-analysis using a robust Bayesian approach [@bartos2023; @maier2023] and found the overall model ensemble estimated the effect as *d* = .034 (95% credible interval [.0, .248]). Taken together, these studies suggest that the true effects of these choice manipulations for motor learning are uncertain, small, and potentially null. @wulf2016 also highlighted instructional language as a third practice variable that can be manipulated to enhance learning through autonomy-support. Yet the wording of such task instructions has received minimal attention in the motor learning literature to date.
+
+The language used in task instructions exists on a continuum ranging from highly controlling to autonomy-supportive [@reeve2009]. Factors that contribute to autonomy-supportive instructions are prioritization of the learner’s perspective and goals, openness to learner initiative, and support for learner self-direction [@reeve2009; @reeve2011]. @reeve2011 provided participants with either autonomy-supportive, neutral, or controlling instructions about how to solve near-unsolvable puzzles. Despite performance on the puzzles being the same between groups (i.e., the puzzles were not solved), the controlling language group had the lowest perceptions of autonomy while the autonomy-supportive group had the highest perceptions of competence. Thus, autonomy-supportive instructions can exert affective benefits even when performance gains are not possible. @hooyman2014 extended this work to the motor learning literature by providing participants with either autonomy-supportive, controlling, or neutral instructions about how to perform a modified cricket bowl to a target. Compared to the controlling language group, the autonomy-supportive group performed with less error in practice and in a delayed retention test, and also had higher ratings for perceived choice, self-efficacy, and positive affect at the end of practice.
+
+Although the results of @hooyman2014 suggested a motor performance and learning benefit of autonomy-supportive language, there are some methodological limitations that warrant consideration. First, the autonomy-supportive instructions were confounded with an analogy; previously shown to also facilitate motor performance and learning [e.g., @liao2001; see @masters2020 for a review]. As the analogy was not part of the controlling or neutral language instructions, it is impossible to disentangle whether the benefits in the autonomy-supportive group resulted from the instructional language, the analogy, or some combination of the two. Second, the authors’ measure of perceived choice to capture autonomy-support does not comprehensively map onto the basic needs of Self-Determination Theory [@mcdonough2007; @ng2011; @ryan2020] and has been shown to be a poor indicator of self-determination and intrinsic motivation [@reeve2003]. Lastly, the experimental design was underpowered for all but the largest plausible effect sizes. With 16 participants per group, the main effect of Group at retention would only be able to detect *f* of 0.4 (equivalent to *d* of .8 for a *t*-test) with 80% power. Such an effect is considerably higher than an estimate of the median effect size in motor learning studies [*d* = 0.63, @lohse2016]. Further, when underpowered designs find significant results, they are prone to be false positives with inflated effect size estimates [@button2013; @simmons2011].
+
+In the present experiment, we investigated the effects of autonomy-supportive language on motor performance and learning while addressing the above mentioned methodological limitations of @hooyman2014. Participants practiced a speed cup stacking task and received instructions with either autonomy-supportive or controlling language. We also asked participants to self-report their perceptions of autonomy, competence, and intrinsic motivation at multiple time points in the experiment. Based on OPTIMAL theory [@wulf2016], we predicted that participants in the autonomy-supportive language group would demonstrate faster stacking times in practice and retention, and report higher perceptions of autonomy, competence, and intrinsic motivation compared to the participants in the controlling language group.
+
+# Methods
+
+We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study [@simmons2012]. All data and `R` scripts can be accessed here: https://github.com/cartermaclab/expt_instructional-language and the pre-registration can be accessed here: https://doi.org/10.17605/osf.io/9n46p.
+
+## Sample size calculation
+
+To test our primary prediction that autonomy-supportive instructional language would enhance motor skill retention compared to controlling instructional language, we performed a two-stage *a priori* power analysis using the smallest effect size of interest approach [see @lakens2022 for a discussion]. We specified our smallest effect size of interest as *d* = 0.4. This is a conservative estimate compared to an estimate of the median effect size in the motor learning literature [*d* = 0.63 in @lohse2016], a meta-analytic estimate of the effect size of autonomy-supportive instructional language [*d* = 0.63 in @su2011], and has been suggested as a reasonable smallest effect size of interest for psychological research [@brysbaert2019].
+
+In the first stage, we used a one-sided Welch’s *t*-test with the following parameters: $\alpha$ = 0.05, $\beta$ = 0.20, and *d* = 0.4, resulting in 78 participants per group for a total of 156 participants. In the second stage, we used a shift function, which is a family of robust statistical techniques for comparing entire distributions [@R-rogme; @rousselet2020; @wilcox2021; @wilcox2023]. It is therefore a useful alternative to comparisons based on means as effects can, and do, occur in the tails of distributions as well. In other words, the shift function is a powerful tool to determine how, and by how much, two distributions differ [@R-rogme; @wilcox2021]. For this power analysis, we simulated right-skewed distributions with *n* = 78 per group and a mean difference of 0.4. Right-skewed distributions were used because time based quantities are typically asymmetric [see @rousselet2020 for a discussion] and our primary outcome variable was stacking time.
+
+We performed 10,000 simulated experiments using both a one-sided Welch’s *t*-test and a shift function to determine which statistical analysis should be used to test our primary prediction. The *t*-test had 80% power (consistent with that from the first stage) whereas the shift function had 88% power. As such, the shift function was selected as our primary analysis. We include the *t*-test as a secondary analysis for the interested reader.
+
+## Participants
+
+A convenience sample of undergraduate and graduate students at a university in \censor{southwestern Ontario} were recruited from undergraduate courses and through word of mouth during the Fall 2022 semester. Participants were randomly assigned to either the autonomy-supportive instructional language group (*M*~age~ = 18.7 years, *SD* = 1.85, range = 18 to 27, *n* = 78, 54 females) or the controlling language group (*M*~age~ = 18.9 years, *SD* = 2.39, range = 18 to 29, *n* = 78, 52 females). Participants were compensated $15 CAD or with course-credit for their time. All participants gave written informed consent and the experiment was approved by \censor{McMaster University’s} Research Ethics Board.
+
+## Task and apparatus
+
+Participants were tasked with learning the 3-6-3 speed cup stacking sequence in accordance with the rules of the World Sport Stacking Association (https://www.thewssa.com/). Official Speed Stack cups (https://www.speedstacks.com/) were used and participants performed the task using both of their hands. To successfully complete the 3-6-3 sequence, participants performed an upstack phase and a downstack phase. The cups began in upside down piles consisting of three, six, and three cups from left to right. The upstack phase required participants to create a 3-cup pyramid, followed by a 6-cup pyramid, then another 3-cup pyramid. The down stack phase consisted of collapsing the first 3-cup pyramid from the upstack phase, then the 6-cup pyramid, and then the remaining 3-cup pyramid so the cups were in the same configuration as the start of the task. The goal of the task was to perform the upstack and downstack phases as fast as possible.
+
+## Procedure
+
+Data collection involved two sessions that occurred on consecutive days. Session 1 consisted of obtaining informed consent, a demographics questionnaire, the pre-test (5 no-feedback trials), an acquisition phase (30 trials with feedback), and questionnaires related to three psychological constructs. Session 2 consisted of the same three questionnaires and the delayed (~24 hours) retention test (5 no-feedback trials). Participants completed both sessions of the experiment individually. Participants received phase-specific instructions using neutral language at the start of each experimental phase. Group-specific instructions were also provided at the start of acquisition (see below for details). Instructions were displayed on a 22-inch computer monitor (1920 x 1080 resolution) positioned to the left of the participant.
+
+At the start of each trial, participants stood at a standard height table with their hands on marked locations and the 12 upside down cups arranged in the 3-6-3 configuration on the table in front of them. Participants were shown a “Get Ready!” prompt on the computer monitor for 1 s. After a 1 s constant foreperiod, an audiovisual go-signal (green square and a beep tone) was presented. Participants were instructed to begin the upstack phase as quickly as possible following the go-signal as its presentation initiated the timer. Once the upstack and downstack phases were completed, participants hit the spacebar on a keyboard located in front of them to stop the timer. If an error occurred (e.g., forgot to hit the spacebar to stop timer, only completed the upstack phase then stopped the timer, etc.), the researcher recorded the trial number for later removal.
+
+```{r table1, echo = FALSE, results = "asis"}
+table1 <- tibble::tibble(
+  c1 = c("Perceived autonomy",
+         "Perceived competence",
+         "Intrinsic motivation"),
+  c2 = c("0.79",
+         "0.79", 
+         "0.88"),
+  c3 = c("0.83",
+         "0.86",
+         "0.91"),
+  c4 = c("0.85",
+         "0.88",
+         "0.92"),
+)
+table1 |>  
+  kbl(booktabs = TRUE,
+      escape = TRUE,
+      linesep = "\\addlinespace",
+      caption = "Cronbach's alpha for each questionnaire at each timepoint.",
+      col.names = c("Questionnaire",
+                    "After pre-test",
+                    "After acquisition",
+                    "Before retention")
+  )  |>  
+  kable_styling(position = "left",
+                #font_size = 11,
+                latex_options = "scale_down")  |> 
+  column_spec(1, width = "12em")  |> 
+  column_spec(2, width = "9em") |> 
+  column_spec(3, width = "9em") |> 
+  column_spec(4, width = "9em") 
+```
+
+Prior to the pre-test, participants received neutral language instructions that described the cup stacking task and the pre-test protocol. Included in these instructions were two videos from the Speed Stacks website. The first was a demonstration of how to perform the 3-6-3 sequence and the second described what to do if any cups were knocked over during the upstack and/or downstack phases. The pre-test consisted of five trials with no feedback regarding their stacking time. After the pre-test, participants completed three questionnaires related to key psychological variables in OPTIMAL theory [@wulf2016]. Perceived autonomy and perceived competence were assessed using the Basic Needs Satisfaction in Sport Scale, which has been shown to have good reliability and construct validity [@ng2011]. The perceived competence subscale has 5 items, for example "I feel I am good at this task". The perceived autonomy subscale has 10 items to capture choice (4 items, e.g., "In this study, I get opportunities to make choices"), an internal perceived locus of causality (3 items, e.g., "In this study, I feel I am pursuing goals that are my own"), and volition (3 items, e.g., "I choose to participate in this study according to my own free will"). Intrinsic motivation was assessed using the Task Interest and Enjoyment subscale (7 items, e.g., "This cup stacking task was fun to do") of the Intrinsic Motivation Inventory [@mcauley1989]. For all questions, participants read a statement on a handout and then verbally reported their answer using a Likert scale ranging from 1 (not true at all) to 7 (very true). Answers were recorded by a trained research assistant and stored for later analysis. Cronbach's alpha values for each questionnaire at each time point are reported in Table \@ref(tab:table1).
+
+Before the acquisition phase, participants received neutral language instructions that described the cup stacking task and the acquisition protocol. The acquisition phase consisted of 30 trials and feedback about stacking time was displayed for 2 s after every trial. Prior to acquisition trials 1, 11, and 21, participants received group-specific instructions based on whether they were randomly assigned to the autonomy-supportive language group or the controlling language group (see Table \@ref(tab:table2)). The group-specific instructions were pre-recorded and played as an audio clip to participants. This was done to ensure that instruction delivery was consistent across participants, and to eliminate potential confounds such as differences in tone, pace, number of spoken words, amount of eye contact, etc. Our group-specific instructions were reviewed and revised based on feedback from an expert in autonomy-supportive instructional language (Dr. Johnmarshall Reeve, personal communication, April 20 2022).[^1] After all acquisition trials were finished, participants completed the three questionnaires a second time.
+
+[^1]: The reviewed instructions referred to a floor curling task rather than the cup stacking task that was ultimately used in the experiment.
+
+Participants returned to the lab for Session 2 approximately 24 hours after finishing Session 1. Upon arrival, participants completed the three questionnaires for a third and final time. Before performing the delayed retention test, participants received neutral language instructions that described the cup stacking task and the retention protocol. The retention test consisted of five trials with no feedback regarding their stacking time.
+
+A custom LabVIEW (National Instruments Inc.) program was created that controlled the presentation of instructions, the timing of experimental protocol, and recorded and stored the data for offline analysis.
+
+```{r table2, echo = FALSE, results = "asis"}
+table2 <- tibble::tibble(
+  c1 = c("Autonomy-support",
+         "Controlling"),
+  c2 = c("Are you ready to learn how to cup stack? Does this sound like an activity you might want to try? It will probably be helpful if you think of the task as a challenge and consider a goal to complete it as quickly as possible. To help, I’ll offer some hints here at the beginning. You have probably already noticed that I’ve put the cups in three stacks. It might be helpful to arrange them in order from left to right, with three cups on the left, six in the middle, and three on the right. You might be thinking that the best way to complete the task is to upstack the cups from left to right, then return to the beginning and also downstack from left to right. If this is what you’re thinking, you are right! I understand that you might feel a little hesitant and unsure. Most people feel this way, at least at first. You are free to begin when you wish.",
+         "Your job is to learn cup stacking - perform it well and do it as quickly as possible. To do so, do what I tell you to do. Don’t begin yet, listen carefully to me. Make sure the stacks are in their proper order. I want the stacks in order from left to right, with three cups on the left, six in the middle, and three on the right. Make sure the stacks are in their proper order. If so, good. If not, fix it. When completing the task, I want you to upstack the cups from left to right, then return to the beginning to also downstack from left to right. If you’re thinking of doing it differently - don’t, that is not what I told you to do. Begin.")
+)
+table2  |>  
+  kbl(booktabs = TRUE,
+      escape = TRUE,
+      linesep = "\\addlinespace",
+      caption = "Group specific instructions received during acquisition before trials 1, 11, and 21.",
+      col.names = c("Group",
+                    "Acquisition instructions")
+  )  |>  
+  kable_styling(position = "left",
+                #font_size = 11,
+                latex_options = c("HOLD_position", "scale_down"))  |> 
+  column_spec(1, width = "10em") |> 
+  column_spec(2, width = "33em")
+```
+
+## Data analysis
+
+### Outcome variables
+
+Our primary outcome variable was stacking time, which was the interval between the go-signal and the participant hitting the spacebar. Trials recorded as an error (122/6240, 1.96%) during data collection were manually removed before data analysis. Stacking time was calculated as the mean for blocks of five trials, resulting in one pre-test block, six acquisition blocks, and one delayed retention block. Perceived autonomy and perceived competence scores were respectively calculated as the mean of the 10 autonomy items and six competence items from the Basic Needs Satisfaction in Sport Scale. Intrinsic motivation was calculated as the mean of the seven items of the Task Interest and Enjoyment subscale from the Intrinsic Motivation Inventory.
+
+### Primary analysis
+
+We performed a shift function on mean stacking time in retention, adjusted for pre-test scores, to test our primary prediction that autonomy-supportive instructional language would enhance learning compared to controlling instructional language. For the shift function we first calculated the 20% trimmed means for each participant. We then regressed retention stacking time onto pre-test stacking time (i.e, using pre-test as a covariate). Next, we computed deciles using the Harrell-Davis estimator [@harrell1982] and 95% confidence intervals around each decile were calculated using percentile bootstraps. Corrected *p*-values using Hochberg’s method [@hochberg1988] were calculated for each decile. The shift function was considered significant if any of the corrected *p*-values was $\leq$ .05.
+
+### Secondary analyses
+
+We analyzed mean stacking time during the acquisition period using a 2 Group (Autonomy-support, Controlling) x 5 Block mixed design ANOVA with repeated measures on Block. We assessed the impact of our instructional language manipulation on perceived autonomy, perceived competence, and intrinsic motivation using separate 2 Group (Autonomy-support, Controlling) x 2 Time (After acquisition, Before retention) mixed ANCOVAs with pre-test scores as the covariate and repeated measures on Time. 
+
+Alpha was set to .05 for all statistical analyses. Corrected degrees of freedom using the Greenhouse–Geisser method are always reported when appropriate. Generalized eta squared $(\eta_{G}^{2})$ is reported as an effect size for all omnibus tests. Post hoc comparisons were adjusted for multiple comparisons using the Holm–Bonferroni correction. Statistical analyses were conducted using `r cite_r("../r-references.bib")` were used in this project.
+
+# Results
+
+## Primary analysis
+
+Pre-test adjusted stacking time data for each participant in the autonomy-supportive language and controlling language groups are shown in Figure \@ref(fig:fig1)A. The shift function (Fig. \@ref(fig:fig1)C) comparing the groups at each decile (Fig. \@ref(fig:fig1)B) is relatively flat in the middle (deciles 3 through 6), but has a negative slope, indicating that the two distributions differ in their spread [@R-rogme]. The largest differences between the groups were in the first and last deciles. The controlling language group was faster than the autonomy-supportive group in the first decile whereas the autonomy-supportive language group was faster in the last decile. None of the decile comparisons were significant after *p*-values were adjusted for multiple comparisons.
+
+<!-- \clearpage -->
+
+```{r fig1, echo = FALSE, fig.cap = "(ref:fig1-caption)", fig.align = "center"}
+knitr::include_graphics("../../figs/fig1.pdf")
+```
+
+(ref:fig1-caption) \small \normalfont \textbf{Shift function on retention stacking times adjusted for pre-test times.} Scatterplot of stacking time as a function of experimental group **(A)** with each data point representing a 20% trimmed mean for an individual participant. The same scatterplot from the top row with the deciles if each distribution represented by the black lines **(B)**. The thick black line represents the median of each distribution. The difference between groups at each decile are represented by the colored lines. A blue line indicates that the Controlling language group was faster in a decile and an orange line indicates that the Autonomy-supportive language group was faster in a decile. The bottom row illustrates the shift function **(C)**, which focuses on the grey shaded region of the x-axis in the middle row. The deciles for the Autonomy-supportive language group are plotted on the x-axis and the difference in deciles between the two groups are plotted on the y-axis. The vertical dashed line represents the median of the Autonomy-supportive language group. The circles represent the decile differences using the same color coding described above. Error bars represent 95% percentile bootstrapped confidence intervals. All decile comparisons were not significant after *p*-values were adjusted for multiple comparisons using Hochberg's method.
+
+\clearpage
+
+## Secondary analyses
+
+### Acquisition phase
+
+Participants in the autonomy-supportive language and controlling language groups decreased their stacking time across acquisition blocks (Fig. \@ref(fig:fig2)). This was supported by a significant main effect of Block, $F(4.40, 677.96) = 111.91$, $p < .001$, $\eta_{G}^2 = .137$. Stacking time in Block 1 was slower than all other blocks $(p's < .001)$, Block 2 was slower than Blocks 3 to 6 $(p's \leq .004)$, and Blocks 3 and 4 were both slower than Blocks 5 and 6 (*p*'s < .001). The main effect of Group, $F(1, 154) = 2.20$, $p = .140$, $\eta_{G}^2 = .011$, and the Group x Block interaction, $F(4.40, 677.96) = 0.59$, $p = .681$, $\eta_{G}^2 < .001$, were not significant.
+
+### Retention test
+
+Performance in the delayed retention test was also analyzed using a more common approach in motor learning research. A one-tailed Welch's *t*-test on pre-test adjusted mean stacking times for the Autonomy-supportive language group (*M* = 9.86 s, *SD* = 0.80) and the Controlling language group (*M* = 10.04 s, *SD* = 1.37) was not significant, $t(124.51) = 1.00$, $p = .159$, $d = .16$ $[-.156, .477]$.
+
+\clearpage
+
+```{r fig2, echo = FALSE, fig.cap = "(ref:fig2-caption)", fig.align = "center"}
+knitr::include_graphics("../../figs/fig2.pdf")
+```
+
+(ref:fig2-caption) \small \normalfont \textbf{Motor performance data for all experimental phases.} Mean stacking time (s) for the Autonomy-supportive language (orange circles, solid line) and Controlling language (blue squares, dotted line) groups were computed by averaging the data into blocks of five trials. This resulted in one block for pre-test (Pre), six block for acquisition (Acq), and one block for the ~24-hr delayed retention test (Ret). The pre-test and acquisition blocks were completed in Session 1 and the retention block was completed in Session 2. Feedback about stacking time (s) was only available during the acquisition blocks and was provided after each trial. Group-specific instructions as a function of experimental group were played as pre-recorded audio clips before trials 1 (start of Block 1), 11 (start of Block 3), and 21 (start of Block 5) in acquisition. The inset figure shows pre-test adjusted retention stacking time (s) for both groups. Error bars in both figures represent 95% confidence intervals.
+
+\clearpage
+
+### Psychological variables
+
+Perceptions of autonomy (adjusted for pre-test) remained consistent within both groups (Fig. \@ref(fig:fig3)A). Pre-test, the covariate, was a significant predictor of later time points, $F(1, 153) = 467.970$, $p < .001$. Participants in the autonomy-supportive language group self-reported higher scores than the participants in the controlling language group after acquisition and before retention. This was supported by a significant main effect of Group, $F(1, 153) = 4.40$, $p = .037$, $\eta_{G}^2 = .020$, revealing that our instructional language manipulation worked as intended. The main effect of Time, $F(1, 153) = 0.48$, $p = .490$, $\eta_{G}^2 < .001$, and the Group x Time interaction, $F(1, 153) < 0.01$, $p = .982$, $\eta_{G}^2 < .001$, were not significant. 
+
+Perceptions of competence (adjusted for pre-test) were relatively consistent in both groups (Fig. \@ref(fig:fig3)B). Pre-test was a significant predictor of later time points, $F(1, 153) = 399.13$, $p < .001$. The autonomy-supportive language group had higher perceptions of competence after acquisition compared to the controlling language group. Interestingly, from after acquisition to before retention the autonomy-supportive language group showed a slight decrease in perceived competence whereas the controlling language group had a slight increase. The significant main effects for Group, $F(1, 153) = 5.89$, $p = .016$, $\eta_{G}^2 = .029$, and Time, $F(1, 153) = 8.19$, $p = .004$, $\eta_{G}^2 = .011$, were superseded by a significant Group x Time interaction, $F(1, 153) = 5.13$, $p = .025$, $\eta_{G}^2 = .039$. The interaction resulted from the autonomy-supportive language group having higher perceptions of competence than the controlling language group after acquisition $(p < .001)$, but not before retention $(p = .830)$. 
+
+Intrinsic motivation (adjusted for pre-test) scores remained consistent within both groups (Fig. \@ref(fig:fig3)C). Pre-test was a significant predictor of later time points, $F(1, 153) = 630.89$, $p < .001$. Participants in the controlling language group had slightly higher scores after pre-test and before retention compared to participants in the autonomy-supportive group whereas the reverse was shown after the acquisition phase. This pattern of results was supported by a significant Group x Time interaction, $F(1, 153) = 6.04$, $p = .015$, $\eta_{G}^2 = .010$. The autonomy-supportive language group reported significantly lower intrinsic motivation scores before retention than after acquisition $(p = .007)$, and no significant differences at any time point in the controlling language group (*p*'s > .9). 
+
+We also performed some exploratory correlational analyses between our three psychological variables and performance in retention. We plotted pre-test adjusted retention stacking times as a function of perceived autonomy (Fig. \@ref(fig:fig3)D), perceived competence (Fig. \@ref(fig:fig3)E), and intrinsic motivation (Fig. \@ref(fig:fig3)F) scores before retention, adjusted for pre-test for each participant. If there were associations between these psychological variables and performance in retention, we expected to see a negative relationship (i.e., faster stacking times associated with higher self-reported scores). As can be seen in each figure, we instead found no relationship between retention performance and our psychological variables.
+
+\clearpage
+
+```{r fig3, echo = FALSE, fig.cap = "(ref:fig3-caption)", fig.align = "center"}
+knitr::include_graphics("../../figs/fig3.pdf")
+```
+
+(ref:fig3-caption) \small \normalfont \textbf{Questionnaire data.} Self-reported scores for perceived autonomy **(A)**, perceived competence **(B)**, and intrinsic motivation **(C)** after the pre-test, after the acquisition phase, and before the delayed retention test for the Autonomy-supportive language (orange circles) and the Controlling language (blue squares) groups. The horizontal bars represent the group means, with the pre-test adjusted mean shown for after acquisition and before retention. Each data point represents the mean score across subscale items for an individual participant. The relationship between retention stacking time (s) adjusted for pre-test and perceived autonomy **(D)**, perceived competence **(E)**, and intrinsic motivation **(F)** before retention and adjusted for pre-test is shown. Each data point represents the mean score across subscale items for an individual participant in the Autonomy-supportive language (orange circles) and the Controlling language (blue squares) groups. The estimated regression fit (solid lines) for each group is shown. The shaded areas represent the 95% confidence intervals. A negative slope in these plots would suggest faster stacking times were associated with higher self-reported scores on the psychological variable of interest.
+
+\clearpage
+
+## Equivalence test
+
+Due to the null findings of the shift function and *t*-test on retention stacking times, we tested for equivalence with a noninferiority test as outlined in our pre-registration. Specifically, we used the two one-sided test procedure [@schuirmann1987] and a noninferiority bound of *d* = .4, which was our smallest effect size of interest. The test was non-significant, $t(124.5) = 1.50$, $p = .069$. The 90% confidence interval around the effect size in retention was [-.11, .43], indicating that these data are inconsistent with all effects larger than $d = \pm\,.43$.
+
+# Discussion
+
+In their OPTIMAL theory of motor learning, @wulf2016 suggested that motor performance and learning can be enhanced when learners receive task instructions that use autonomy-supportive rather than controlling language. In the present experiment we investigated the effect of autonomy-supportive instructional language on the acquisition and retention of a speed cup stacking task. Based on OPTIMAL theory, we predicted that participants in the autonomy-supportive language group would demonstrate faster stacking times in acquisition and delayed retention, and would also report higher perceptions of autonomy, competence, and intrinsic motivation compared to those in the controlling language group. Our results did not show a performance benefit for the autonomy-supportive language group in acquisition or retention compared to the controlling language group. We found significantly higher perceptions of autonomy in the autonomy-supportive language group compared to the controlling language group. After the acquisition phase, participants in the autonomy-supportive language group reported higher perceived competence than the controlling language group, but this effect did not persist before the delayed retention test. No significant group differences were found for intrinsic motivation. Taken together, our findings do not support key predictions of the OPTIMAL theory of motor learning [@wulf2016].
+
+We failed to replicate the performance advantage of autonomy-supportive language in acquisition and delayed retention compared to controlling language that was reported by @hooyman2014. This is also inconsistent with Wulf and Lewthwaite’s [-@wulf2016] OPTIMAL theory wherein task instructions that utilize autonomy-supportive language results in a virtuous cycle that has positive influences on motor performance and learning. Importantly, our failed replication and lack of support for OPTIMAL theory are not the result of participants failing to improve at the motor task or an unsuccessful instructional language manipulation. That is, both the autonomy-supportive language and controlling language groups showed a decrease in stacking times from pre-test to the delayed retention test, suggesting learning occurred (see Fig. \@ref(fig:fig2)) and the autonomy-supportive language group reported higher perceptions of autonomy (see Fig. \@ref(fig:fig3)A). These conflicting findings may be due to the previously identified methodological limitation in @hooyman2014 of a small sample size [e.g., @button2013; @lohse2016] or potential flexibility in the data analysis [e.g., @simmons2011] as their experiment was not pre-registered [e.g., @munafo2017]. Although such factors may have contributed, we believe the main reason for our discrepant results arise from the confounding analogy included in Hooyman and colleagues’ [-@hooyman2014] autonomy-supportive instructions, but excluded from both their controlling and neutral language instructions. It is therefore possible that their autonomy-supportive language advantage was *actually* an analogy advantage [e.g., @liao2001; @masters2020]. This possibility clearly highlights the importance of carefully crafting instructions that only differ in terms of the primary predictor variable of interest---instructional language---in future research.
+
+Despite having the largest sample size in an instructional language motor learning experiment to date, the results of our robust shift function, a more traditional *t*-test, and non-inferiority test were inconclusive. Using our smallest effect size of interest, *d* = .4, as the noninferiority bound, the effect size at delayed retention in the present experiment is inconsistent with all effects larger than *d* = $\pm .43$. Although this is bigger than our pre-registered smallest effect size of interest, this test would reject the median effect size previously found in motor learning research [*d* = .63 by @lohse2016]. As such, future research investigating the impact of instructional language on motor skill acquisition likely requires larger sample sizes than that used in the present experiment and what is commonly found in motor learning research [e.g., @lohse2016; @mckay2023].
+
+When examining the stacking time distributions for each group in retention (see Fig. \@ref(fig:fig1)A), it is clear that the spread of the data in the two distributions is different. Such differences can be masked when researchers solely rely on standard summary statistics such as the mean [see @anscombe1973 for the famous Anscombe’s quartet example]. Although all adjusted decile comparisons in our primary shift function analysis were not significant, there were some interesting trends in this analysis that could have theoretical and/or practical significance for future work. Specifically, there was a trend for better performance with controlling language for the participants who were in the fastest (i.e., more skilled) stacking time decile (unadjusted *p* = .051) and a trend for better performance with autonomy-supportive language for the participants who were in the slowest (i.e., less skilled) stacking time decile (unadjusted *p* = .017). This patterns suggests that the motor learning benefits of different instructional language wording may potentially interact with skill level; however, a large *N* experiment would be required to test this hypothesis. If this hypothesis could be empirically supported, it would be incompatible with OPTIMAL theory as @wulf2016 predicted that autonomy-supportive instructional language is beneficial irrespective of skill level. A possible explanation for why less skilled individuals could benefit from autonomy-supportive instructions compared to more skilled individuals benefiting from controlling language instructions is that the former may act as a buffer against poor performance by allowing learners to persevere and remain engaged in the task during practice. Thus, future work in this area should consider including behavioural, neural, and/or psychological measures related to task engagement [e.g., @fairclough2009; @leiker2016; @obrien2009]. More generally, motor learning scientists may want to consider leveraging modern and robust statistical tools in their work as these techniques may provide greater insight and a more nuanced understanding of their data [@R-rogme; @wilcox2021].
+
+Despite the prominent role of autonomy-support facilitating motor performance and learning in OPTIMAL theory, the higher perceptions of autonomy in our autonomy-supportive language group (see Fig. \@ref(fig:fig3)A) did not translate into superior performance in either acquisition or retention compared to the controlling language group. The higher reported perceived autonomy scores in the autonomy-supportive language group serves as a strong manipulation check and is also consistent with findings from previous research [e.g., @reeve2011] and multiple meta-analyses [e.g., @mossman2022; @ng2012; okada2021; @su2011]. However, our estimate of this effect on perceptions of autonomy is much smaller than previous estimates. The estimated size of the effect in the present experiment is *d* = .34 [.03, .66], which is outside the 95% confidence interval around Su and Reeve’s [-@su2011] estimate of *d* = .63 [.43, .83]. A potential explanation for our smaller estimate is that @su2011 identified five components that can make instructions autonomy-supportive: 1) use non-controlling language, 2) acknowledge negative feelings, 3) nurture inner motivational resources, 4) provide meaningful rationales, and 5) offer choices; and many of the experiments in their meta-analysis included either four or all five components. In contrast, our instructions only included the first three components. This suggests that not all components may be necessary to have a positive influence on perceptions of autonomy. However, the strength of the effect may scale with the number of components incorporated in the instructions and this may be important for seeing differences in motor performance and learning. Future research would be needed to test this possibility. Another possibility for the smaller effect size and lack of performance differences in acquisition and retention is that participants received the same pre-recorded, group-specific instructions in practice. During skill acquisition outside of a lab, coaches likely alter the wording of their instructions in a more dynamic way to meet an athlete’s needs. Thus, future research could test this idea by having slight variations in the instructions each time they are provided to the learners during acquisition.
+
+In OPTIMAL theory, autonomy-support is also predicted to facilitate performance by enhancing expectancies. Although participants in the autonomy-supportive language group had higher perceived competence scores (see Fig. \@ref(fig:fig3)B) at the end of the acquisition phase than those in the controlling language group, this was not associated with enhanced performance. Moreover, this group difference regarding perceptions of competence was no longer present before participants completed the delayed retention test. This pattern of results is similar to those found for self-efficacy by @hooyman2014. Intrinsic motivation is also fundamental to OPTIMAL theory; however, we did not find higher intrinsic motivation in the autonomy-supportive language group compared to the controlling language group (see Fig. \@ref(fig:fig3)C). Surprisingly, intrinsic motivation actually decreased from the end of acquisition to before retention in the autonomy-supportive group; without compromising retention performance relative to the controlling language group. Contrary to OPTIMAL theory where such psychological variables are argued to have a direct and lasting impact on motor performance and learning, our data suggests these effects may only appear when participants are experiencing the experimental manipulation (i.e., during practice) and are more transient in nature. That is, we did not see a significant relationship between self-reported scores for any of the psychological variables before retention with performance in retention (see Figs. \@ref(fig:fig3)D-F). Although transient or more indirect effects of motivational factors are consistent with seminal information-processing perspectives on motor learning [e.g., @salmoni1984], we acknowledge the exploratory nature of these correlational analyses in the present experiment. Overall, our findings regarding perceived competence, intrinsic motivation, and perceived autonomy are difficult to reconcile with OPTIMAL theory and suggest investigating *indirect* effects of motivational factors on skill acquisition may be a fruitful line of inquiry for future motor learning research.
+
+A potential limitation of the current experiment is the lack of a neutral language group. We did not include a neutral language group for several reasons. First, the inclusion of a third group would have substantially increased the required sample size (from *N* = 156 to *N* = 246) to investigate our smallest effect size of interest with adequate power. Second, as such an increase in sample size would have exceeded our resource constraints [@lakens2022; @lenth2001], we instead decided to conduct a large *N* experiment that focused on the ends of the instructional language continuum, or in other words, the biggest potential difference. Third, in both @reeve2011 and @hooyman2014, the key differences were between the autonomy-supportive language group and the controlling language group. Lastly, autonomy-supportive and controlling language are often used in real-world settings such as physiotherapy [e.g., @murray2015] and  coaching [e.g., @bartholomew2009; @carroll2021], with little inclusion of neutral language. For these reasons, we contend that a neutral language group would not have added enough value to offset the costs associated with the dramatic increase in sample size.
+
+In conclusion, we did not find a motor performance and learning advantage of autonomy-supportive instructional language compared to controlling instructional language. This finding is inconsistent with past motor learning research [@hooyman2014] and the OPTIMAL theory of motor learning [@wulf2016]. Despite no motor performance or learning differences, we did find higher perceptions of autonomy in the participants that received autonomy-supportive instructional language compared to those that received controlling instructional language. While the primary goal of most motor learning interventions is a relatively permanent change in the capability for skill, it is worth noting that in some situations autonomy-support in and of itself might be a desired affective outcome [e.g., @stemarie2020a]. In such situations, autonomy-supportive instructional language could be paired with another form of practice that has more reliable effects on motor learning. Our perceived competence and intrinsic motivation data were also not consistent with the direct and lasting effects proposed within OPTIMAL theory. While we do not discount the importance of motivation for motor skill acquisition, based on the current data we suggest that the motivational factors within OPTIMAL may instead have a more *indirect* influence on motor skill learning.
+
+\newpage
+
+## Author Contributions (CRediT Taxonomy)
+
+\noindent Conceptualization: \censor{LSG, BM, DMYB, MJC}  
+\noindent Data curation: \censor{LSG, MJC}  
+\noindent Formal analysis: \censor{LSG}  
+\noindent Funding acquisition: \censor{LSG, MJC}  
+\noindent Investigation: \censor{LSG, CT, JS, LB, CC}  
+\noindent Methodology: \censor{LSG, BM, DMYB, MJC}  
+\noindent Project administration: \censor{LSG, CT, JS, MJC}  
+\noindent Software: \censor{LSG, BM, MJC}  
+\noindent Supervision: \censor{MJC}  
+\noindent Validation: \censor{BM, DMYB, MJC}  
+\noindent Visualization: \censor{LSG, MJC}  
+\noindent Writing -- original draft: \censor{LSG, BM, CT, JS, LB, CC, DMYB, MJC}  
+\noindent Writing -- review & editing: \censor{LSG, BM, CT, JS, LB, CC, DMYB, MJC}  
+
+## Declaration of competing interest
+
+\noindent All authors have no competing interests to declare.
+
+## Data availability statement
+
+\noindent The data and scripts can be accessed here: https://github.com/cartermaclab/expt_instructional-language.
+
+## Funding
+
+\noindent This work was supported by the \blackout{Natural Sciences and Engineering Research Council (NSERC) of Canada (RGPIN-2018-05589; MJC) and McMaster University (MJC). LSG was supported by an NSERC Postgraduate Scholarship.}
+
+\newpage
+
+# References
+
+\vspace{2ex}
+::: {#refs custom-style="Bibliography"}
+:::
+
