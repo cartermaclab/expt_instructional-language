@@ -1,3 +1,8 @@
+# Stupid mac os
+.DS_Store
+
+/figs/ignore/*
+
 # History files
 .Rhistory
 .Rapp.history
